@@ -3,3 +3,10 @@
   padding: 0px;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'worksans';
+  src: url('./fonts/WorkSans-VariableFont_wght.ttf');
+}
+a,h1,p{
+  font-family: 'worksans';
+}
