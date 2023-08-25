@@ -22,9 +22,9 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            padding-left: 41px;
             margin-top: 70px;
             a{
+                padding-left: 41px;
                 height: 53px;       
                 width: 100%;
                 color: white;
@@ -37,15 +37,19 @@
                     height: auto;
                 }
             }
+            .hovered{
+                background: #8837C7;
+            }
         }
     }
 
     .home-conteudo{
+        width: 100%;
         display: flex;
         flex-direction: column;
         .inicial-bar{
             background-color: #747474;
-            width: 1224px;
+            width: 100%;
             height: 65px;
             background: #FFF;
             box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.19);
@@ -54,7 +58,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 30px 0 14px;
-            h1{
+            >h1{
                 color: #A79F9F;
                 font-size: 14px;
                 font-style: normal;
@@ -62,9 +66,36 @@
                 line-height: 100%;
             }
             .user-box{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
                 width: 37px;
                 height: 37px;
-                background-image: url('/public/iconbg.png');
+                background-image: url('../../public/iconbg.png');
+            }
+        }
+        >h1{
+            padding-left: 52px;
+            color: #CF5B00;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 100%;
+            letter-spacing: -0.154px;  
+            margin-top: 71px;         
+        }
+        .secao-conteudo{
+            padding: 0 52px;
+            >h1{
+            margin-top: 4px;
+            margin-bottom: 45px;
+            color: #000;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 100%;
+            letter-spacing: -0.352px;                
             }
         }
     }
