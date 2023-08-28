@@ -247,6 +247,9 @@
                     }                
                 }
                 table{
+                    display: table;
+                    height: 50px;
+                    overflow: hidden;
                     border-collapse: collapse;
                     thead{    
                         tr:first-child{
@@ -263,9 +266,7 @@
                         }
                     }
                     tbody{
-                        border-collapse: collapse;
-                        height: 10px;
-                        overflow: hidden;
+                        border: 1px solid #000;
                         .conteudo-tabela{
                             border-radius: 6px;
                             position: relative;
