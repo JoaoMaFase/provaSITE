@@ -67,13 +67,112 @@ function Home() {
               </div>
 
               <table>
-                <td>
-                  <th>Nome</th>           
-                  <th>Cpf</th> 
-                  <th>Cnh</th> 
-                  <th>Telefone</th> 
-                  <th>Email</th> 
-                </td>
+                <thead>
+                  <tr>
+                    <th>Nome</th>           
+                    <th>CPF</th> 
+                    <th>CNH</th> 
+                    <th>Telefone</th> 
+                    <th>Email</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className='conteudo-tabela'>
+                    <td>
+                      João Paulo do Nascimento Souza
+                    </td>
+                    <td>
+                      495.426.828.16
+                    </td>
+                    <td>
+                      01234567891
+                    </td>
+                    <td>
+                      (11) 94453-2220
+                    </td>
+                    <td>
+                      nascc.joao@gmail.com
+                    </td>
+                    <img className='edit' src='/edit.svg'/>
+                    <img className='delete' src='/trash.svg'/>
+                  </tr>
+                  <tr className='conteudo-tabela'>
+                    <td>
+                      João Paulo do Nascimento Souza
+                    </td>
+                    <td>
+                      495.426.828.16
+                    </td>
+                    <td>
+                      01234567891
+                    </td>
+                    <td>
+                      (11) 94453-2220
+                    </td>
+                    <td>
+                      nascc.joao@gmail.com
+                    </td>
+                    <img className='edit' src='/edit.svg'/>
+                    <img className='delete' src='/trash.svg'/>
+                  </tr>
+                  <tr className='conteudo-tabela'>
+                    <td>
+                      João Paulo do Nascimento Souza
+                    </td>
+                    <td>
+                      495.426.828.16
+                    </td>
+                    <td>
+                      01234567891
+                    </td>
+                    <td>
+                      (11) 94453-2220
+                    </td>
+                    <td>
+                      nascc.joao@gmail.com
+                    </td>
+                    <img className='edit' src='/edit.svg'/>
+                    <img className='delete' src='/trash.svg'/>
+                  </tr>
+                  <tr className='conteudo-tabela'>
+                    <td>
+                      João Paulo do Nascimento Souza
+                    </td>
+                    <td>
+                      495.426.828.16
+                    </td>
+                    <td>
+                      01234567891
+                    </td>
+                    <td>
+                      (11) 94453-2220
+                    </td>
+                    <td>
+                      nascc.joao@gmail.com
+                    </td>
+                    <img className='edit' src='/edit.svg'/>
+                    <img className='delete' src='/trash.svg'/>
+                  </tr>
+                  <tr className='conteudo-tabela'>
+                    <td>
+                      João Paulo do Nascimento Souza
+                    </td>
+                    <td>
+                      495.426.828.16
+                    </td>
+                    <td>
+                      01234567891
+                    </td>
+                    <td>
+                      (11) 94453-2220
+                    </td>
+                    <td>
+                      nascc.joao@gmail.com
+                    </td>
+                    <img className='edit' src='/edit.svg'/>
+                    <img className='delete' src='/trash.svg'/>
+                  </tr>
+                </tbody>
               </table>
               
             </section>

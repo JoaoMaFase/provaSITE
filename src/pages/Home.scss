@@ -88,6 +88,7 @@
         }
         .conteudo-mae{
             background-color: #F5F6FA;
+            width: 100%;
             gap: 48px;
             height: 100%;
             display: flex;
@@ -183,11 +184,13 @@
                 }
             }
             .secao-lista{
+                width: 100%;
                 background-color: white;
                 display: flex;
                 flex-direction: column;
                 padding: 52px 0 36px 53px;
                 padding-left: 36px;
+                padding-right: 51px;
                 >h1{
                     margin-bottom: 37px;    
                     color: #242121;
@@ -242,6 +245,69 @@
                         font-weight: 400;
                         line-height: normal;
                     }                
+                }
+                table{
+                    border-collapse: collapse;
+                    thead{    
+                        tr:first-child{
+                            th{
+                                color: #A8A8A8;
+                                font-feature-settings: 'clig' off, 'liga' off;
+                                font-family:'worksans';
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 37.043px;   
+                                text-align: left;                         
+                            }
+                        }
+                    }
+                    tbody{
+                        border-collapse: collapse;
+                        height: 10px;
+                        overflow: hidden;
+                        .conteudo-tabela{
+                            border-radius: 6px;
+                            position: relative;
+                            margin-bottom: 5px;
+                            z-index: 1;
+                            &:hover{
+                                img{
+                                    display: flex;
+                                }
+                            }
+                            td{
+                                color: #3C4261;
+                                font-feature-settings: 'clig' off, 'liga' off;
+                                font-family: 'worksans';
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 37.043px;
+                                margin-bottom: 100px;
+                            }
+                            img{
+                                transition: 5s ease-in-out;
+                                cursor: pointer;
+                                width: 24px;
+                                height: auto;
+                            }
+                            .delete{
+                                position: absolute;
+                                z-index: 9999;
+                                display: none;
+                                right: 0px;
+                                top: 5px;
+                            }
+                            .edit{
+                                position: absolute;
+                                z-index: 9999;
+                                display: none;
+                                right: 25px;
+                                top: 5px;
+                            }
+                        }
+                    }
                 }
             }
         }
