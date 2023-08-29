@@ -188,7 +188,7 @@
                 background-color: white;
                 display: flex;
                 flex-direction: column;
-                padding: 52px 0 36px 53px;
+                padding: 52px 0 50px 53px;
                 padding-left: 36px;
                 padding-right: 51px;
                 >h1{
@@ -247,12 +247,33 @@
                     }                
                 }
                 table{
-                    display: table;
-                    height: 50px;
-                    overflow: hidden;
+                    width: 100%;
                     border-collapse: collapse;
+                    thead tr .um,tbody .conteudo-tabela .um{
+                        width: 300px;
+                        
+                    }
+                    thead tr .dois,tbody .conteudo-tabela .dois{
+                        width: 150px;
+                        
+                    }
+                    thead tr .tres,tbody .conteudo-tabela .tres{
+                        width: 100px;
+                        
+                    }
+                    thead tr .quatro,tbody .conteudo-tabela .quatro{
+                        width: 150px;
+                        
+                    }
+                    thead tr .cinco,tbody .conteudo-tabela .cinco{
+                        width: 100px;
+                        
+                    }
+                    
                     thead{    
-                        tr:first-child{
+                        border-collapse: collapse;
+                        width: 100%;
+                        tr{
                             th{
                                 color: #A8A8A8;
                                 font-feature-settings: 'clig' off, 'liga' off;
@@ -264,48 +285,34 @@
                                 text-align: left;                         
                             }
                         }
+                        
                     }
                     tbody{
-                        border: 1px solid #000;
+                        overflow: auto;
+                        width: 100%;
                         .conteudo-tabela{
-                            border-radius: 6px;
                             position: relative;
-                            margin-bottom: 5px;
                             z-index: 1;
                             &:hover{
                                 img{
-                                    display: flex;
+                                    display: inline;
                                 }
                             }
                             td{
+                                width: auto;
+                                flex-wrap: wrap;
                                 color: #3C4261;
                                 font-feature-settings: 'clig' off, 'liga' off;
                                 font-family: 'worksans';
                                 font-size: 14px;
-                                font-style: normal;
                                 font-weight: 600;
-                                line-height: 37.043px;
-                                margin-bottom: 100px;
                             }
                             img{
                                 transition: 5s ease-in-out;
                                 cursor: pointer;
-                                width: 24px;
+                                width: fit-content;
                                 height: auto;
-                            }
-                            .delete{
-                                position: absolute;
-                                z-index: 9999;
                                 display: none;
-                                right: 0px;
-                                top: 5px;
-                            }
-                            .edit{
-                                position: absolute;
-                                z-index: 9999;
-                                display: none;
-                                right: 25px;
-                                top: 5px;
                             }
                         }
                     }

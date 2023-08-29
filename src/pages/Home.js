@@ -54,9 +54,6 @@ function Home() {
                   </div>
                 <a>SALVAR</a>
               </div>
-              <div>
-
-              </div>
             </section>
 
             <section className='secao-lista'>
@@ -65,120 +62,151 @@ function Home() {
                 <label>Nome</label>
                 <input type='text' placeholder='Bruno'/>
               </div>
-
               <table>
                 <thead>
                   <tr>
-                    <th>Nome</th>           
-                    <th>CPF</th> 
-                    <th>CNH</th> 
-                    <th>Telefone</th> 
-                    <th>Email</th> 
+                    <th className='um'>Nome</th>           
+                    <th className='dois'>CPF</th> 
+                    <th className='tres'>CNH</th> 
+                    <th className='quatro'>Telefone</th> 
+                    <th className='cinco'>Email</th> 
                   </tr>
                 </thead>
                 <tbody>
                   <tr className='conteudo-tabela'>
-                    <td>
-                      João Paulo do Nascimento Souza
-                    </td>
-                    <td>
-                      495.426.828.16
-                    </td>
-                    <td>
-                      01234567891
-                    </td>
-                    <td>
-                      (11) 94453-2220
-                    </td>
-                    <td>
-                      nascc.joao@gmail.com
-                    </td>
+                    <td className='um'>João Paulo do Nascimento Souza</td>
+                    <td className='dois'>495.426.828.16</td>
+                    <td className='tres'>01234567891</td>
+                    <td className='quatro'>(11) 94453-2220</td>
+                    <td className='cinco'>nascc.joao@gmail.com</td>
+                    <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                    </div>
+                      
+                  </tr>
+                  <tr className='conteudo-tabela'>
+                    <td>João Paulo do Nascimento Souza</td>
+                    <td>495.426.828.16</td>
+                    <td>01234567891</td>
+                    <td>(11) 94453-2220</td>
+                    <td>nascc.joao@gmail.com</td>
                     <img className='edit' src='/edit.svg'/>
                     <img className='delete' src='/trash.svg'/>
                   </tr>
                   <tr className='conteudo-tabela'>
-                    <td>
-                      João Paulo do Nascimento Souza
-                    </td>
-                    <td>
-                      495.426.828.16
-                    </td>
-                    <td>
-                      01234567891
-                    </td>
-                    <td>
-                      (11) 94453-2220
-                    </td>
-                    <td>
-                      nascc.joao@gmail.com
-                    </td>
+                    <td>João Paulo do Nascimento Souza</td>
+                    <td>495.426.828.16</td>
+                    <td>01234567891</td>
+                    <td>(11) 94453-2220</td>
+                    <td>nascc.joao@gmail.com</td>
                     <img className='edit' src='/edit.svg'/>
                     <img className='delete' src='/trash.svg'/>
                   </tr>
                   <tr className='conteudo-tabela'>
-                    <td>
-                      João Paulo do Nascimento Souza
-                    </td>
-                    <td>
-                      495.426.828.16
-                    </td>
-                    <td>
-                      01234567891
-                    </td>
-                    <td>
-                      (11) 94453-2220
-                    </td>
-                    <td>
-                      nascc.joao@gmail.com
-                    </td>
+                    <td>João Paulo do Nascimento Souza</td>
+                    <td>495.426.828.16</td>
+                    <td>01234567891</td>
+                    <td>(11) 94453-2220</td>
+                    <td>nascc.joao@gmail.com</td>
                     <img className='edit' src='/edit.svg'/>
                     <img className='delete' src='/trash.svg'/>
                   </tr>
                   <tr className='conteudo-tabela'>
-                    <td>
-                      João Paulo do Nascimento Souza
-                    </td>
-                    <td>
-                      495.426.828.16
-                    </td>
-                    <td>
-                      01234567891
-                    </td>
-                    <td>
-                      (11) 94453-2220
-                    </td>
-                    <td>
-                      nascc.joao@gmail.com
-                    </td>
-                    <img className='edit' src='/edit.svg'/>
-                    <img className='delete' src='/trash.svg'/>
-                  </tr>
-                  <tr className='conteudo-tabela'>
-                    <td>
-                      João Paulo do Nascimento Souza
-                    </td>
-                    <td>
-                      495.426.828.16
-                    </td>
-                    <td>
-                      01234567891
-                    </td>
-                    <td>
-                      (11) 94453-2220
-                    </td>
-                    <td>
-                      nascc.joao@gmail.com
-                    </td>
+                    <td>João Paulo do Nascimento Souza</td>
+                    <td>495.426.828.16</td>
+                    <td>01234567891</td>
+                    <td>(11) 94453-2220</td>
+                    <td>nascc.joao@gmail.com</td>
                     <img className='edit' src='/edit.svg'/>
                     <img className='delete' src='/trash.svg'/>
                   </tr>
                 </tbody>
+                   
               </table>
+                
               
             </section>
           </div>
         }
-        {}
+        {page == 2 &&
+          <div className='conteudo-mae'>
+          <section className='secao-conteudo'>
+            <h1>Controle de Veículos</h1>
+            <div className='secao-forms-um'>
+              <h1>Novo Veículo</h1>
+                <div className='input-box'>
+                  <input type='text' placeholder='Carro'/>
+                  <label>Tipo</label>
+                </div>
+                <div className='input-box'>
+                  <label>Modelo</label>
+                  <input type='text' placeholder='HB20'/>
+                </div>
+                <div className='input-box'>
+                  <label>Marca</label>
+                  <input type='text' placeholder='Hyundai'/>
+                </div>
+                <div className='input-box'>
+                  <label>Ano</label>
+                  <input type='text' placeholder='2016'/>
+                </div>
+                <div className='input-box'>
+                  <label>Placa</label>
+                  <input type='text' placeholder='ABC-000'/>
+                </div>
+              <a>SALVAR</a>
+            </div>
+          </section>
+          <section className='secao-lista'>
+            <h1>Lista de Veículos</h1>
+            <div className='input-box'>
+              <label>Modelo, Marca ou Placa</label>
+              <input type='text' placeholder='Prius'/>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th className='um'>Modelo</th>           
+                  <th className='dois'>Marca</th> 
+                  <th className='tres'>Ano</th> 
+                  <th className='quatro'>Tipo</th> 
+                  <th className='cinco'>Placa </th> 
+                </tr>
+              </thead>
+              <tbody>
+                <tr className='conteudo-tabela'>
+                  <td className='um'>CG 160 Titan</td>
+                  <td className='dois'>Honda</td>
+                  <td className='tres'>2016</td>
+                  <td className='quatro'>Moto</td>
+                  <td className='cinco'>ABC-126</td>
+                  <img className='edit' src='/edit.svg'/>
+                  <img className='delete' src='/trash.svg'/>
+                </tr>
+                <tr className='conteudo-tabela'>
+                  <td className='1'>CG 160 Titan</td>
+                  <td className='2'>Honda</td>
+                  <td className='3'>2016</td>
+                  <td className='4'>Moto</td>
+                  <td className='5'>ABC-126</td>
+                  <img className='edit' src='/edit.svg'/>
+                  <img className='delete' src='/trash.svg'/>
+                </tr>
+                <tr className='conteudo-tabela'>
+                  <td className='1'>CG 160 Titan</td>
+                  <td className='2'>Honda</td>
+                  <td className='3'>2016</td>
+                  <td className='4'>Moto</td>
+                  <td className='5'>ABC-126</td>
+                  <img className='edit' src='/edit.svg'/>
+                  <img className='delete' src='/trash.svg'/>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+        }
         {}
         {}
       </section>
