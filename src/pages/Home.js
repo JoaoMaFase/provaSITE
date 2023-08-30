@@ -26,6 +26,16 @@ function Home() {
           </div>
         </div>
         <h1>ÁREA ADMINISTRATIVA</h1>
+        {page == 1 &&
+          <div className='conteudo-mae'>
+            <section className='secao-conteudo'>
+              <h1>
+                Página inicial
+              </h1>
+              <p>Boa tarde, meu principe</p>
+            </section>
+          </div>
+        }
         {page == 2 &&
           <div className='conteudo-mae'>
             <section className='secao-conteudo'>
