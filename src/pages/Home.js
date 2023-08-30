@@ -74,7 +74,7 @@ function Home() {
                 </thead>
                 <tbody>
                   <tr className='conteudo-tabela'>
-                    <td className='um'>João Paulo do Nascimento Souza</td>
+                    <td className='um'>João Paulo do Nascimento Souza Vieira Santana Almeida Brito</td>
                     <td className='dois'>495.426.828.16</td>
                     <td className='tres'>01234567891</td>
                     <td className='quatro'>(11) 94453-2220</td>
