@@ -26,7 +26,7 @@ function Home() {
           </div>
         </div>
         <h1>ÁREA ADMINISTRATIVA</h1>
-        {page == 1 &&
+        {page == 2 &&
           <div className='conteudo-mae'>
             <section className='secao-conteudo'>
               <h1>Controle de Clientes</h1>
@@ -91,8 +91,10 @@ function Home() {
                     <td>01234567891</td>
                     <td>(11) 94453-2220</td>
                     <td>nascc.joao@gmail.com</td>
-                    <img className='edit' src='/edit.svg'/>
-                    <img className='delete' src='/trash.svg'/>
+                    <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                    </div>
                   </tr>
                   <tr className='conteudo-tabela'>
                     <td>João Paulo do Nascimento Souza</td>
@@ -100,8 +102,10 @@ function Home() {
                     <td>01234567891</td>
                     <td>(11) 94453-2220</td>
                     <td>nascc.joao@gmail.com</td>
-                    <img className='edit' src='/edit.svg'/>
-                    <img className='delete' src='/trash.svg'/>
+                    <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                    </div>
                   </tr>
                   <tr className='conteudo-tabela'>
                     <td>João Paulo do Nascimento Souza</td>
@@ -109,8 +113,10 @@ function Home() {
                     <td>01234567891</td>
                     <td>(11) 94453-2220</td>
                     <td>nascc.joao@gmail.com</td>
-                    <img className='edit' src='/edit.svg'/>
-                    <img className='delete' src='/trash.svg'/>
+                    <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                    </div>
                   </tr>
                   <tr className='conteudo-tabela'>
                     <td>João Paulo do Nascimento Souza</td>
@@ -118,8 +124,10 @@ function Home() {
                     <td>01234567891</td>
                     <td>(11) 94453-2220</td>
                     <td>nascc.joao@gmail.com</td>
-                    <img className='edit' src='/edit.svg'/>
-                    <img className='delete' src='/trash.svg'/>
+                    <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                    </div>
                   </tr>
                 </tbody>
                    
@@ -129,7 +137,7 @@ function Home() {
             </section>
           </div>
         }
-        {page == 2 &&
+        {page == 3 &&
           <div className='conteudo-mae'>
           <section className='secao-conteudo'>
             <h1>Controle de Veículos</h1>
@@ -181,8 +189,10 @@ function Home() {
                   <td className='tres'>2016</td>
                   <td className='quatro'>Moto</td>
                   <td className='cinco'>ABC-126</td>
-                  <img className='edit' src='/edit.svg'/>
-                  <img className='delete' src='/trash.svg'/>
+                  <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                  </div>
                 </tr>
                 <tr className='conteudo-tabela'>
                   <td className='1'>CG 160 Titan</td>
@@ -190,8 +200,10 @@ function Home() {
                   <td className='3'>2016</td>
                   <td className='4'>Moto</td>
                   <td className='5'>ABC-126</td>
-                  <img className='edit' src='/edit.svg'/>
-                  <img className='delete' src='/trash.svg'/>
+                  <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                  </div>
                 </tr>
                 <tr className='conteudo-tabela'>
                   <td className='1'>CG 160 Titan</td>
@@ -199,8 +211,10 @@ function Home() {
                   <td className='3'>2016</td>
                   <td className='4'>Moto</td>
                   <td className='5'>ABC-126</td>
-                  <img className='edit' src='/edit.svg'/>
-                  <img className='delete' src='/trash.svg'/>
+                  <div>
+                      <img className='edit' src='/edit.svg'/>
+                      <img className='delete' src='/trash.svg'/>
+                  </div>
                 </tr>
               </tbody>
             </table>

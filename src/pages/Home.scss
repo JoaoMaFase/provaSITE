@@ -254,7 +254,7 @@
                         
                     }
                     thead tr .dois,tbody .conteudo-tabela .dois{
-                        width: 150px;
+                        width: 120px;
                         
                     }
                     thead tr .tres,tbody .conteudo-tabela .tres{
@@ -262,7 +262,7 @@
                         
                     }
                     thead tr .quatro,tbody .conteudo-tabela .quatro{
-                        width: 150px;
+                        width: 120px;
                         
                     }
                     thead tr .cinco,tbody .conteudo-tabela .cinco{
@@ -288,11 +288,13 @@
                         
                     }
                     tbody{
+                        height: 100px;
                         overflow: auto;
                         width: 100%;
                         .conteudo-tabela{
                             position: relative;
                             z-index: 1;
+                            padding: 10px;
                             &:hover{
                                 img{
                                     display: inline;
@@ -307,14 +309,32 @@
                                 font-size: 14px;
                                 font-weight: 600;
                             }
-                            img{
+                            >div{
+                                display: flex;
+                                flex-direction: row;
+                                margin-left: 10px;
+                                height: 25px;
+                                align-items: center;
+                                justify-content: flex-end;
+                                img{
                                 transition: 5s ease-in-out;
                                 cursor: pointer;
                                 width: fit-content;
                                 height: auto;
                                 display: none;
+                                }
                             }
                         }
+                    }
+                    tbody::-webkit-scrollbar{
+                        width: 10px;
+                    }
+                    tbody::-webkit-scrollbar-track{
+                        background-color: transparent;
+                    }
+                    tbody::-webkit-scrollbar-thumb{
+                        background-color: rgb(133,133,133);
+                        border-radius: 20px;
                     }
                 }
             }
