@@ -191,6 +191,7 @@
                 padding: 52px 0 50px 53px;
                 padding-left: 36px;
                 padding-right: 51px;
+                margin-bottom: 50px;
                 >h1{
                     margin-bottom: 37px;    
                     color: #242121;
@@ -301,7 +302,7 @@
                                 }
                             }
                             td{
-                                height: 53px;
+                                height: 43px;
                                 width: auto;
                                 flex-wrap: wrap;
                                 color: #3C4261;
@@ -309,9 +310,15 @@
                                 font-family: 'worksans';
                                 font-size: 14px;
                                 font-weight: 600;
+                                h1{
+                                    font-feature-settings: 'clig' off, 'liga' off;
+                                    font-family: 'worksans';
+                                    font-size: 144px !important;
+                                    font-weight: 600;
+                                }
                             }
                             >div{
-                                height: 53px !important;
+                                height: 43px !important;
                                 width: 100%;
                                 display: flex;
                                 flex-direction: row;

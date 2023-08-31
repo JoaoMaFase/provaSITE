@@ -1,8 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Home.scss';
+import axios from 'axios';
 
 function Home() {
-  const [page,setPage] = useState(1)
+  const [page,setPage] = useState(2)
+  const [clientes,setClientes] = useState ('')
+  const [nome,setNome] = useState('')
+  const [email,setEmail] = useState('')
+  const [telefone,setTelefone] = useState('')
+  const [cpf,setCpf] = useState('')
+  const [cnh,setCnh] = useState('')
+  const [pesquisaCliente,setPesquisaCliente] = useState('')
+
+  async function BuscarClientes(){
+    let url = ''
+    if(pesquisaCliente != ''){
+      console.log(pesquisaCliente)
+      url = 'http://localhost:5000/cliente/busca?nome='+ pesquisaCliente
+    }
+    else{
+      url = 'http://localhost:5000/cliente/todos'
+    }
+    let r = await axios.get(url)
+    setClientes(r.data)
+    console.log(r.data)
+  }
+  async function InserirClientes(){
+    let body = {
+      nome: nome, 
+      email: email, 
+      telefone: telefone, 
+      cpf: cpf, 
+      cnh: cnh
+    }
+    let url = 'http://localhost:5000/cliente' + body
+    let r = await axios.get(url)
+    setClientes(r.data)
+    console.log(r.data)
+  }
+  async function DeletarClientes(id){
+    console.log('agora')
+    let url = 'http://localhost:5000/cliente/' + id
+    let r = await axios.delete(url) 
+    BuscarClientes()
+  }
+
+  useEffect(() => {
+    BuscarClientes()
+  }, [pesquisaCliente])
+
   return (
     <div className="home">
       <section className='home-menu'>
@@ -43,24 +89,24 @@ function Home() {
               <div className='secao-forms-um'>
                 <h1>Novo Cliente</h1>
                   <div className='input-box'>
-                    <input type='text' placeholder='Bruno'/>
+                    <input type='text' placeholder='Bruno' value={nome} onChange={e => setNome(e.target.value)}/>
                     <label>Nome</label>
                   </div>
                   <div className='input-box'>
                     <label>Email</label>
-                    <input type='text' placeholder='bruno@gmail.com'/>
+                    <input type='text' placeholder='bruno@gmail.com' value={email} onChange={e => setEmail(e.target.value)}/>
                   </div>
                   <div className='input-box'>
                     <label>Telefone</label>
-                    <input type='text' placeholder='(11) 99938-5764'/>
+                    <input type='text' placeholder='(11) 99938-5764' value={telefone} onChange={e => setTelefone(e.target.value)}/>
                   </div>
                   <div className='input-box'>
                     <label>CPF</label>
-                    <input type='text' placeholder='323.323.232-33'/>
+                    <input type='text' placeholder='323.323.232-33' value={cpf} onChange={e => setCpf(e.target.value)}/>
                   </div>
                   <div className='input-box'>
                     <label>CNH</label>
-                    <input type='text' placeholder='06856723546897'/>
+                    <input type='text' placeholder='06856723546897' value={cnh} onChange={e => setCnh(e.target.value)}/>
                   </div>
                 <a>SALVAR</a>
               </div>
@@ -70,7 +116,7 @@ function Home() {
               <h1>Lista de Clientes</h1>
               <div className='input-box'>
                 <label>Nome</label>
-                <input type='text' placeholder='Bruno'/>
+                <input type='text' placeholder='Bruno' value={pesquisaCliente} onChange={e => setPesquisaCliente(e.target.value)}/>
               </div>
               <table>
                 <thead>
@@ -83,62 +129,30 @@ function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className='conteudo-tabela'>
-                    <td className='um'>João Paulo do Nascimento Souza Vieira Santana Almeida Brito</td>
-                    <td className='dois'>495.426.828.16</td>
-                    <td className='tres'>01234567891</td>
-                    <td className='quatro'>(11) 94453-2220</td>
-                    <td className='cinco'>nascc.joao@gmail.com</td>
+                {clientes.length ?
+                  clientes.map((item => 
+                (
+                  <tr id={item.id} className='conteudo-tabela'>
+                    <td className='um'>{item.nome}</td>
+                    <td className='dois'>{item.cpf}</td>
+                    <td className='tres'>{item.cnh}</td>
+                    <td className='quatro'>{item.telefone}</td>
+                    <td className='cinco'>{item.email}</td>
                     <div>
                       <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                    </div>
-                      
-                  </tr>
-                  <tr className='conteudo-tabela'>
-                    <td>João Paulo do Nascimento Souza</td>
-                    <td>495.426.828.16</td>
-                    <td>01234567891</td>
-                    <td>(11) 94453-2220</td>
-                    <td>nascc.joao@gmail.com</td>
-                    <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
+                      <img className='delete' src='/trash.svg' onClick={e => DeletarClientes(item.id)}/>
                     </div>
                   </tr>
-                  <tr className='conteudo-tabela'>
-                    <td>João Paulo do Nascimento Souza</td>
-                    <td>495.426.828.16</td>
-                    <td>01234567891</td>
-                    <td>(11) 94453-2220</td>
-                    <td>nascc.joao@gmail.com</td>
-                    <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                    </div>
-                  </tr>
-                  <tr className='conteudo-tabela'>
-                    <td>João Paulo do Nascimento Souza</td>
-                    <td>495.426.828.16</td>
-                    <td>01234567891</td>
-                    <td>(11) 94453-2220</td>
-                    <td>nascc.joao@gmail.com</td>
-                    <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                    </div>
-                  </tr>
-                  <tr className='conteudo-tabela'>
-                    <td>João Paulo do Nascimento Souza</td>
-                    <td>495.426.828.16</td>
-                    <td>01234567891</td>
-                    <td>(11) 94453-2220</td>
-                    <td>nascc.joao@gmail.com</td>
-                    <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                    </div>
-                  </tr>
+                )))
+              : <tr>
+                  <td>
+                    <h1>
+                      Cliente não encontrado
+                    </h1>
+                  </td>
+                </tr>
+              }
+                  
                 </tbody>
                    
               </table>
