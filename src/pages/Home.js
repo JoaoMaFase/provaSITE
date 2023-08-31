@@ -144,10 +144,10 @@ function Home() {
                     </div>
                   </tr>
                 )))
-              : <tr>
-                  <td>
-                    <h1>
-                      Cliente não encontrado
+              : <tr className='conteudo-tabela'>
+                  <td className='td-not-found'>
+                    <h1 className='not-found'>
+                      Cliente não encontrado/existente
                     </h1>
                   </td>
                 </tr>

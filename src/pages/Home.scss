@@ -266,8 +266,12 @@
                         width: 120px;
                         
                     }
-                    thead tr .cinco,tbody .conteudo-tabela .cinco{
-                        width: 200px;
+                    tbody .conteudo-tabela .cinco{
+                        width: 10px;
+                        overflow: hidden;
+                    }
+                    thead tr .cinco{
+                        width: 50px;
                     }
                     
                     thead{    
@@ -288,14 +292,11 @@
                         
                     }
                     tbody{
-                        height: 100px;
-                        overflow: auto;
+                        height: 150px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
                         width: 100%;
                         .conteudo-tabela{
-                            border-radius: 5px !important;
-                            padding: 10px;
-                            position: relative;
-                            z-index: 1;
                             &:hover{
                                 img{
                                     display: inline;
@@ -310,11 +311,18 @@
                                 font-family: 'worksans';
                                 font-size: 14px;
                                 font-weight: 600;
+                            }
+                            .td-not-found{
+                                display: flex;
+                                width: 100% !important;
+                                align-items: center;
+                                height: 43px;
                                 h1{
                                     font-feature-settings: 'clig' off, 'liga' off;
                                     font-family: 'worksans';
-                                    font-size: 144px !important;
+                                    font-size: 20px !important;
                                     font-weight: 600;
+                                    color: red;
                                 }
                             }
                             >div{
