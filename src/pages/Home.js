@@ -137,7 +137,7 @@ function Home() {
                     <td className='dois'>{item.cpf}</td>
                     <td className='tres'>{item.cnh}</td>
                     <td className='quatro'>{item.telefone}</td>
-                    <td className='cinco'>{item.email}</td>
+                    <td className='hehe'>{item.email}</td>
                     <div>
                       <img className='edit' src='/edit.svg'/>
                       <img className='delete' src='/trash.svg' onClick={e => DeletarClientes(item.id)}/>
