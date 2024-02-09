@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Home.scss';
 import axios from 'axios';
+import { Link } from 'react-scroll';
 
 function Home() {
   // variável de renderização condicional
@@ -15,6 +16,7 @@ function Home() {
   const [cnh,setCnh] = useState('')
   const [pesquisaCliente,setPesquisaCliente] = useState('')
   const [button,setButton] = useState('SALVAR')
+  const [idEditable,setIdEditable] = useState(0)
 
   async function BuscarClientes(){
     try {
@@ -63,13 +65,37 @@ function Home() {
     BuscarClientes()
   }
   
-  function EditarClientes(id,nome,cpf,cnh,telefone,email){
+  function EditarInput(id,nome,cpf,cnh,telefone,email){
+    setIdEditable(id)
     setButton('EDITAR')
     setNome(nome)
     setCpf(cpf)
     setCnh(cnh)
     setTelefone(telefone)
     setEmail(email)
+  }
+  async function EditarCliente() {
+    try {
+      let url = 'http://localhost:5000/cliente/' + idEditable
+      let body = {
+        nome: nome, 
+        email: email, 
+        telefone: telefone, 
+        cpf: cpf, 
+        cnh: cnh
+      }
+      let r = await axios.put(url,body)
+      setButton('SALVAR')
+      setIdEditable(0)
+      setNome('')
+      setEmail('')
+      setTelefone('')
+      setCpf('')
+      setCnh('')
+      BuscarClientes()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -136,7 +162,7 @@ function Home() {
                     <input type='text' placeholder='06856723546897' value={cnh} onChange={e => setCnh(e.target.value)}/>
                   </div>
                   <div className='btn-div'>
-                    <a onClick={button == 'SALVAR' ? () => InserirClientes() : () => setNome('joaogato')}>{button}</a>
+                    <a onClick={button == 'SALVAR' ? () => InserirClientes() : () => EditarCliente()}>{button}</a>
                     {button == 'EDITAR' &&
                       <a className='cancel-button' onClick={() => {setNome('');setCpf('');setCnh('');setEmail('');setTelefone('');setButton('SALVAR')}}>CANCELAR</a>
                     } 
@@ -170,7 +196,7 @@ function Home() {
                     <td>{item.cnh}</td>
                     <td>{item.telefone}</td>
                     <td>{item.email}</td>
-                    <td className='td-img'><img className='edit' src='/edit.svg' onClick={() => EditarClientes(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></td>
+                    <td className='td-img'><Link to='secao-conteudo' smooth={true} duration={500}><img className='edit' src='/edit.svg' onClick={() => EditarInput(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></Link></td>
                     <td className='td-img'><img className='delete' src='/trash.svg' onClick={() => DeletarClientes(item.id)}/></td>
                   </tr>
                 )))
