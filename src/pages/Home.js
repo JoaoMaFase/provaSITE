@@ -121,11 +121,11 @@ function Home() {
               <table>
                 <thead>
                   <tr>
-                    <th className='um'>Nome</th>           
-                    <th className='dois'>CPF</th> 
-                    <th className='tres'>CNH</th> 
-                    <th className='quatro'>Telefone</th> 
-                    <th className='cinco'>Email</th> 
+                    <th>Nome</th>           
+                    <th>CPF</th> 
+                    <th>CNH</th> 
+                    <th>Telefone</th> 
+                    <th>Email</th> 
                   </tr>
                 </thead>
                 <tbody>
@@ -133,15 +133,13 @@ function Home() {
                   clientes.map((item => 
                 (
                   <tr id={item.id} className='conteudo-tabela'>
-                    <td className='um'>{item.nome}</td>
-                    <td className='dois'>{item.cpf}</td>
-                    <td className='tres'>{item.cnh}</td>
-                    <td className='quatro'>{item.telefone}</td>
-                    <td className='hehe'>{item.email}</td>
-                    <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg' onClick={e => DeletarClientes(item.id)}/>
-                    </div>
+                    <td>{item.nome}</td>
+                    <td>{item.cpf}</td>
+                    <td>{item.cnh}</td>
+                    <td>{item.telefone}</td>
+                    <td>{item.email}</td>
+                    <td className='td-img'><img className='edit' src='/edit.svg'/></td>
+                    <td className='td-img'><img className='delete' src='/trash.svg' onClick={e => DeletarClientes(item.id)}/></td>
                   </tr>
                 )))
               : <tr className='conteudo-tabela'>
@@ -199,54 +197,46 @@ function Home() {
             <table>
               <thead>
                 <tr>
-                  <th className='um'>Modelo</th>           
-                  <th className='dois'>Marca</th> 
-                  <th className='tres'>Ano</th> 
-                  <th className='quatro'>Tipo</th> 
-                  <th className='cinco'>Placa </th> 
+                  <th>Modelo</th>           
+                  <th>Marca</th> 
+                  <th>Ano</th> 
+                  <th>Tipo</th> 
+                  <th>Placa </th> 
                 </tr>
               </thead>
               <tbody>
                 <tr className='conteudo-tabela'>
-                  <td className='um'>CG 160 Titan</td>
-                  <td className='dois'>Honda</td>
-                  <td className='tres'>2016</td>
-                  <td className='quatro'>Moto</td>
-                  <td className='cinco'>ABC-126</td>
-                  <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                  </div>
+                  <td>CG 160 Titan</td>
+                  <td>Honda</td>
+                  <td>2016</td>
+                  <td>Moto</td>
+                  <td>ABC-126</td>
+                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
+                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
                 </tr>
                 <tr className='conteudo-tabela'>
-                  <td className='1'>CG 160 Titan</td>
-                  <td className='2'>Honda</td>
-                  <td className='3'>2016</td>
-                  <td className='4'>Moto</td>
-                  <td className='5'>ABC-126</td>
-                  <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                  </div>
+                  <td>CG 160 Titan</td>
+                  <td>Honda</td>
+                  <td>2016</td>
+                  <td>Moto</td>
+                  <td>ABC-126</td>
+                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
+                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
                 </tr>
                 <tr className='conteudo-tabela'>
-                  <td className='1'>CG 160 Titan</td>
-                  <td className='2'>Honda</td>
-                  <td className='3'>2016</td>
-                  <td className='4'>Moto</td>
-                  <td className='5'>ABC-126</td>
-                  <div>
-                      <img className='edit' src='/edit.svg'/>
-                      <img className='delete' src='/trash.svg'/>
-                  </div>
+                  <td>CG 160 Titan</td>
+                  <td>Honda</td>
+                  <td>2016</td>
+                  <td>Moto</td>
+                  <td>ABC-126</td>
+                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
+                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
                 </tr>
               </tbody>
             </table>
           </section>
         </div>
         }
-        {}
-        {}
       </section>
     </div>
   );
