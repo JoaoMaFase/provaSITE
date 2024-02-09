@@ -165,22 +165,32 @@
                             line-height: normal;
                         }
                     }
-                    >a{
+                    .btn-div{
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 100px;
-                        height: 36px;    
-                        border-radius: 3px;
-                        background: #7A14C0;                
-                        color: #FFF;
-                        text-align: center;
-                        font-family: 'worksans';
-                        font-size: 12px;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: normal;                    
+                        flex-direction: row;
+                        gap: 5px;
+                        a{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100px;
+                            height: 36px;    
+                            border-radius: 3px;
+                            background: #7A14C0;                
+                            color: #FFF;
+                            text-align: center;
+                            font-family: 'worksans';
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;                    
+                        }
+                        .cancel-button{
+                            background-color: rgb(151, 11, 11);
+                        }
                     }
+                    
+                    
                 }
             }
             .secao-lista{
@@ -248,8 +258,18 @@
                     }                
                 }
                 table{
+                    border: none;
+                    border-collapse: collapse;
                     .td-img{
-                        width: 10px !important;
+                        opacity: 0;
+                        width: 30px;
+                    }
+                    tbody{
+                        tr:hover{
+                            .td-img{
+                                opacity: 1.0;
+                            }
+                        }
                     }
                     tr{
                         th{
@@ -262,6 +282,7 @@
                             text-align: left;                         
                         }
                     }
+                    
                     tbody{
                         font-family: 'worksans';
                     }

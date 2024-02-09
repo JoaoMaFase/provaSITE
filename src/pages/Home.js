@@ -3,7 +3,10 @@ import './Home.scss';
 import axios from 'axios';
 
 function Home() {
+  // variável de renderização condicional
   const [page,setPage] = useState(2)
+  
+  // variáveis de gerenciamento de clientes
   const [clientes,setClientes] = useState ('')
   const [nome,setNome] = useState('')
   const [email,setEmail] = useState('')
@@ -11,38 +14,62 @@ function Home() {
   const [cpf,setCpf] = useState('')
   const [cnh,setCnh] = useState('')
   const [pesquisaCliente,setPesquisaCliente] = useState('')
+  const [button,setButton] = useState('SALVAR')
 
   async function BuscarClientes(){
-    let url = ''
-    if(pesquisaCliente != ''){
-      console.log(pesquisaCliente)
-      url = 'http://localhost:5000/cliente/busca?nome='+ pesquisaCliente
+    try {
+      let url = ''
+      if(pesquisaCliente != ''){
+        console.log(pesquisaCliente)
+        url = 'http://localhost:5000/cliente/busca?nome='+ pesquisaCliente
+      }
+      else{
+        url = 'http://localhost:5000/cliente/todos'
+      }
+      let r = await axios.get(url)
+      setClientes(r.data)
+    } catch (error) {
+      console.log(error)
     }
-    else{
-      url = 'http://localhost:5000/cliente/todos'
-    }
-    let r = await axios.get(url)
-    setClientes(r.data)
-    console.log(r.data)
+    
   }
+
   async function InserirClientes(){
-    let body = {
-      nome: nome, 
-      email: email, 
-      telefone: telefone, 
-      cpf: cpf, 
-      cnh: cnh
+    try {
+      let body = {
+        nome: nome, 
+        email: email, 
+        telefone: telefone, 
+        cpf: cpf, 
+        cnh: cnh
+      }
+      let url = 'http://localhost:5000/cliente'
+      let r = await axios.post(url,body)
+      setClientes(r.data)
+      BuscarClientes()
+      setNome('')
+      setEmail('')
+      setTelefone('')
+      setCpf('')
+      setCnh('')
+    } catch (error) {
+      console.log(error)
     }
-    let url = 'http://localhost:5000/cliente' + body
-    let r = await axios.get(url)
-    setClientes(r.data)
-    console.log(r.data)
   }
+
   async function DeletarClientes(id){
-    console.log('agora')
     let url = 'http://localhost:5000/cliente/' + id
-    let r = await axios.delete(url) 
+    await axios.delete(url) 
     BuscarClientes()
+  }
+  
+  function EditarClientes(id,nome,cpf,cnh,telefone,email){
+    setButton('EDITAR')
+    setNome(nome)
+    setCpf(cpf)
+    setCnh(cnh)
+    setTelefone(telefone)
+    setEmail(email)
   }
 
   useEffect(() => {
@@ -87,7 +114,7 @@ function Home() {
             <section className='secao-conteudo'>
               <h1>Controle de Clientes</h1>
               <div className='secao-forms-um'>
-                <h1>Novo Cliente</h1>
+                  <h1>Novo Cliente</h1>
                   <div className='input-box'>
                     <input type='text' placeholder='Bruno' value={nome} onChange={e => setNome(e.target.value)}/>
                     <label>Nome</label>
@@ -108,7 +135,12 @@ function Home() {
                     <label>CNH</label>
                     <input type='text' placeholder='06856723546897' value={cnh} onChange={e => setCnh(e.target.value)}/>
                   </div>
-                <a>SALVAR</a>
+                  <div className='btn-div'>
+                    <a onClick={button == 'SALVAR' ? () => InserirClientes() : () => setNome('joaogato')}>{button}</a>
+                    {button == 'EDITAR' &&
+                      <a className='cancel-button' onClick={() => {setNome('');setCpf('');setCnh('');setEmail('');setTelefone('');setButton('SALVAR')}}>CANCELAR</a>
+                    } 
+                  </div>
               </div>
             </section>
 
@@ -138,14 +170,14 @@ function Home() {
                     <td>{item.cnh}</td>
                     <td>{item.telefone}</td>
                     <td>{item.email}</td>
-                    <td className='td-img'><img className='edit' src='/edit.svg'/></td>
-                    <td className='td-img'><img className='delete' src='/trash.svg' onClick={e => DeletarClientes(item.id)}/></td>
+                    <td className='td-img'><img className='edit' src='/edit.svg' onClick={() => EditarClientes(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></td>
+                    <td className='td-img'><img className='delete' src='/trash.svg' onClick={() => DeletarClientes(item.id)}/></td>
                   </tr>
                 )))
               : <tr className='conteudo-tabela'>
                   <td className='td-not-found'>
                     <h1 className='not-found'>
-                      Cliente não encontrado/existente
+                      Usuário não encontrado/inexistente
                     </h1>
                   </td>
                 </tr>
