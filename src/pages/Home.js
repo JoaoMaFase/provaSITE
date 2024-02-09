@@ -18,6 +18,18 @@ function Home() {
   const [button,setButton] = useState('SALVAR')
   const [idEditable,setIdEditable] = useState(0)
 
+  // variáveis de gerenciamento de veículos
+  const [pesquisaVeiculo,setPesquisaVeiculo] = useState('')
+  const [car,setCar] = useState('')
+  const [modelo,setModelo] = useState('')
+  const [marca,setMarca] = useState('')
+  const [ano,setAno] = useState('')
+  const [placa,setPlaca] = useState('')
+  const [buttonCar,setButtonCar] = useState('SALVAR')
+  const [veiculos,setVeiculos] = useState('')
+  const [idVeiculoEdit,setVeiculoId] = useState('')
+  const [tiposVeiculos,setTiposVeiculos] = useState('')
+
   async function BuscarClientes(){
     try {
       let url = ''
@@ -84,7 +96,7 @@ function Home() {
         cpf: cpf, 
         cnh: cnh
       }
-      let r = await axios.put(url,body)
+      await axios.put(url,body)
       setButton('SALVAR')
       setIdEditable(0)
       setNome('')
@@ -99,8 +111,49 @@ function Home() {
   }
 
   useEffect(() => {
-    BuscarClientes()
-  }, [pesquisaCliente])
+    if (page == 2){
+      BuscarClientes()
+    }
+    else if (page == 3){
+      BuscarVeiculos()
+    }
+  }, [pesquisaCliente, pesquisaVeiculo])
+  async function BuscarTipoVeiculos(){
+    try {
+      let url = 'http://localhost:5000/tipo/veiculo'
+      let response = await axios.get(url)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function BuscarVeiculos(){
+    try {
+      let url = ''
+      if (pesquisaVeiculo){
+        url = 'http://localhost:5000/veiculo/todos'
+        let response = await axios.get(url)
+        setVeiculos(response)
+      }
+      else{
+        url = 'http://localhost:5000/veiculo/busca?mmp=' + pesquisaVeiculo
+        let response = await axios.get(url)
+        setVeiculos(response)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function EditarInputVeiculo(id,carro,modelo,marca,ano,placa){
+    setButtonCar('EDITAR')
+    setVeiculoId(id)
+    setCar(carro)
+    setModelo(modelo)
+    setMarca(marca)
+    setAno(ano)
+    setPlaca(placa)
+  }
 
   return (
     <div className="home">
@@ -196,7 +249,7 @@ function Home() {
                     <td>{item.cnh}</td>
                     <td>{item.telefone}</td>
                     <td>{item.email}</td>
-                    <td className='td-img'><Link to='secao-conteudo' smooth={true} duration={500}><img className='edit' src='/edit.svg' onClick={() => EditarInput(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></Link></td>
+                    <td className='td-img'><Link to='inicial-bar' smooth={true} duration={500}><img className='edit' src='/edit.svg' onClick={() => EditarInput(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></Link></td>
                     <td className='td-img'><img className='delete' src='/trash.svg' onClick={() => DeletarClientes(item.id)}/></td>
                   </tr>
                 )))
@@ -224,33 +277,38 @@ function Home() {
             <div className='secao-forms-um'>
               <h1>Novo Veículo</h1>
                 <div className='input-box'>
-                  <input type='text' placeholder='Carro'/>
+                  <input type='text' placeholder='Carro' onChange={(e) => setCar(e.target.value)}/>
                   <label>Tipo</label>
                 </div>
                 <div className='input-box'>
                   <label>Modelo</label>
-                  <input type='text' placeholder='HB20'/>
+                  <input type='text' placeholder='HB20' onChange={(e) => setModelo(e.target.value)}/>
                 </div>
                 <div className='input-box'>
                   <label>Marca</label>
-                  <input type='text' placeholder='Hyundai'/>
+                  <input type='text' placeholder='Hyundai' onChange={(e) => setMarca(e.target.value)}/>
                 </div>
                 <div className='input-box'>
                   <label>Ano</label>
-                  <input type='text' placeholder='2016'/>
+                  <input type='text' placeholder='2016' onChange={(e) => setAno(e.target.value)}/>
                 </div>
                 <div className='input-box'>
                   <label>Placa</label>
-                  <input type='text' placeholder='ABC-000'/>
+                  <input type='text' placeholder='ABC-000' onChange={(e) => setPlaca(e.target.value)}/>
                 </div>
-              <a>SALVAR</a>
+                <div className='btn-div'>
+                  <a onClick={buttonCar == 'SALVAR' ? () => InserirClientes() : () => EditarCliente()}>{buttonCar}</a>
+                  {buttonCar == 'EDITAR' &&
+                    <a className='cancel-button' onClick={() => {setCar('');setModelo('');setMarca('');setAno('');setPlaca('');setButtonCar('SALVAR')}}>CANCELAR</a>
+                  } 
+                </div>
             </div>
           </section>
           <section className='secao-lista'>
             <h1>Lista de Veículos</h1>
             <div className='input-box'>
               <label>Modelo, Marca ou Placa</label>
-              <input type='text' placeholder='Prius'/>
+              <input type='text' placeholder='Prius' value={pesquisaVeiculo} onChange={(e) => setPesquisaVeiculo(e.target.value)}/>
             </div>
             <table>
               <thead>
@@ -269,27 +327,10 @@ function Home() {
                   <td>2016</td>
                   <td>Moto</td>
                   <td>ABC-126</td>
-                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
-                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
+                  <td className='td-img'><Link to='inicial-bar' smooth={true} duration={500}><img className='edit' src='/edit.svg' onClick={() => EditarInputVeiculo(item.id,item.nome,item.cpf,item.cnh,item.telefone,item.email)}/></Link></td>
+                  <td className='td-img'><img className='delete' src='/trash.svg' onClick={() => DeletarClientes(item.id)}/></td>
                 </tr>
-                <tr className='conteudo-tabela'>
-                  <td>CG 160 Titan</td>
-                  <td>Honda</td>
-                  <td>2016</td>
-                  <td>Moto</td>
-                  <td>ABC-126</td>
-                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
-                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
-                </tr>
-                <tr className='conteudo-tabela'>
-                  <td>CG 160 Titan</td>
-                  <td>Honda</td>
-                  <td>2016</td>
-                  <td>Moto</td>
-                  <td>ABC-126</td>
-                  <td className='td-img'><img className='edit' src='/edit.svg'/></td>
-                  <td className='td-img'><img className='delete' src='/trash.svg'/></td>
-                </tr>
+                
               </tbody>
             </table>
           </section>
